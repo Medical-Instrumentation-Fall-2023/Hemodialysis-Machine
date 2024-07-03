@@ -11,7 +11,8 @@ OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 int relay_heating_pad= 8;
 int LDRinput= A0;
-int LED=4;
+int LED_leakage=4;
+int LED_temp=5;
 int relay_pump= 9;
 
 void setup() {
@@ -22,7 +23,8 @@ void setup() {
   pinMode(relay_heating_pad, OUTPUT);
   pinMode(relay_pump, OUTPUT);
   pinMode(LDRinput, INPUT);
-  pinMode(LED, OUTPUT);
+  pinMode(LED_leakage, OUTPUT);
+  pinMode(LED_temp, OUTPUT);
 }
 
 void loop() {
@@ -39,9 +41,11 @@ void loop() {
   Serial.println("C  |  ");
   if( tempC > 30){
     digitalWrite(relay_heating_pad, LOW);
+    digitalWrite(LED_temp, LOW); 
   }
   else{
     digitalWrite(relay_heating_pad, HIGH);
+    digitalWrite(LED_temp, HIGH); 
   }
   //LDR
   int value = analogRead(LDRinput);
@@ -60,12 +64,12 @@ void loop() {
   {
     Serial.println("LDR value is :");//Prints the value of LDR to Serial Monitor.
     Serial.println(value);
-    digitalWrite(LED,HIGH);
+    digitalWrite(LED_leakage,HIGH);
     digitalWrite(relay_pump,LOW);
   }
   else{
     digitalWrite(relay_pump,HIGH);
-    digitalWrite(LED,LOW);
+    digitalWrite(LED_leakage,LOW);
   }
 
   // Wait 1 second:

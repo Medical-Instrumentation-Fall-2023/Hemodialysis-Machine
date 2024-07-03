@@ -37,7 +37,7 @@ This project involves the development of a hemodialysis machine using Arduino mi
 14. 220 and 10k ohm Resistors
 15. Tubes
 16. Containers/Bottles
-**Note:** In a real-world application, the bottle used in this prototype should be replaced with a proper medical-grade dialyzer to ensure optimal performance and safety.
+**Note:** In a real-world application, the bottle used in this prototype should be replaced with a proper medical-grade dialyzer to ensure optimal performance and safety, but due to budget constraints we couldn't afford buying one.
 
 
 ## Wiring Diagram
